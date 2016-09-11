@@ -11,27 +11,35 @@ author:              Sai
 maintainer:          saibaba.telukunta@gmail.com
 -- category:            
 build-type:          Simple
-extra-source-files:  ChangeLog.md test/quick.hs
+extra-source-files:  ChangeLog.md
 cabal-version:       >=1.24.0.0
 
-executable haq
-  main-is:             Haq.hs
-  --other-modules:      
-  -- other-extensions:    
+executable main
+  main-is:             Main.hs
   build-depends:       base >=4.9 && <4.10
   hs-source-dirs:      src
   default-language:    Haskell2010
 
+library
+  build-depends:       base >=4.9 && <4.10
+  hs-source-dirs:      src
+  default-language:    Haskell2010
 
 Test-suite tests
   Type:              exitcode-stdio-1.0
-  Hs-source-dirs:    test
+  Hs-source-dirs:    test, src
   Main-is:           quick.hs
   Build-depends:     base >= 4.0 && < 5,
-                     hashable,
+                     hashable, haskeline,
                      QuickCheck >= 2.4.0.1,
                      text >= 0.11.0.5
 
   Ghc-options:       -Wall -fno-warn-orphans
-  default-language:    Haskell2010
+  default-language:  Haskell2010
 
+Benchmark benchmarks
+  Type:              exitcode-stdio-1.0
+  Hs-source-dirs:    test, src
+  Main-is:           bench.hs
+  build-depends:     base, time
+  default-language:  Haskell2010
