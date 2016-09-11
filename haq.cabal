@@ -30,7 +30,6 @@ Test-suite tests
   Hs-source-dirs:    test, src
   Main-is:           quick.hs
   Build-depends:     base >= 4.0 && < 5,
-                     hashable, haskeline,
                      QuickCheck >= 2.4.0.1,
                      text >= 0.11.0.5
 
